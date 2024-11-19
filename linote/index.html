@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendrier et Horloge</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #e6e6fa;
+        }
+
+        .container {
+            display: flex;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .calendar {
+            margin-right: 20px;
+            flex: 1;
+            background-color: #f8f8ff;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .clock {
+            text-align: center;
+            flex: 1;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #4b0082;
+        }
+
+        h3 {
+            color: #8a2be2;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            color: #4b0082;
+        }
+
+        .gift-icon {
+            color: #9370db;
+            margin-right: 5px;
+        }
+
+        .digital-clock {
+            font-size: 48px;
+            font-weight: bold;
+            color: #4b0082;
+            margin: 20px 0;
+        }
+
+        .date {
+            margin-top: 20px;
+            background-color: #e6e6fa;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .date h2 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .date p {
+            margin: 5px 0 0;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                align-items: flex-start;
+                padding: 20px;
+            }
+
+            .container {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .calendar {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="calendar">
+            <h2>Aujourd'hui</h2>
+            <p><span class="gift-icon">🎁</span> C'est l'anniversaire de Christine</p>
+            <h3>Mercredi</h3>
+            <ul>
+                <li>10h00 : Préparer valise pour Piriac</li>
+                <li>14h00 : Rdv Dr Bertin</li>
+            </ul>
+            <h3>Jeudi</h3>
+            <ul>
+                <li>10h12 : Départ vers Piriac</li>
+            </ul>
+        </div>
+        <div class="clock">
+            <div class="digital-clock" id="clock"></div>
+            <div class="date">
+                <h2>Nous sommes dimanche 14 juillet 2024</h2>
+                <p>C'est le soir</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            document.getElementById('clock').textContent = `${hours}:${minutes}`;
+        }
+
+        updateClock();
+        setInterval(updateClock, 1000);
+    </script>
+</body>
+
+</html>

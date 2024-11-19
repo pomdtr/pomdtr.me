@@ -1,0 +1,12 @@
+{
+    "events": [
+        {
+            "date": "2020-01-01",
+            "title": "Diner avec les Simpsons"
+        },
+        {
+            "date": "2020-01-02",
+            "title": "Amputation de la jambe droite"
+        }
+    ]
+}
