@@ -1,5 +1,3 @@
 export default {
-    fetch() {
-        return new Response("Hello from pomdtr.me");
-    },
+    fetch: () => Response.redirect("https://bsky.app/profile/pomdtr.me")
 };

@@ -28,7 +28,7 @@ type CommandOptions = {
     flags?: Flags;
 }
 
-class Cmd {
+class ContextCmd {
     flag(): Record<string, string | boolean>
     flag(key: string): string | boolean
     flag(key?: string) {
@@ -42,15 +42,32 @@ class Cmd {
     }
 }
 
+class Context {
+    public exitCode: number = 0
+    public cmd: ContextCmd = new ContextCmd()
 
-type Context = {
-    cmd: Cmd
-    text(message: string, options?: {}): void
+    constructor() { }
+
+
+    exit(code: number): void {
+        this.exitCode = code
+    }
+
+    text(message: string, options?: {}): void {
+        console.log(message)
+    }
+
     json(payload: unknown, options?: {
         output?: "stdout" | "stderr"
         code?: number
-    }): void
-    table(data: unknown[]): void
+    }): void {
+        console.log(JSON.stringify(payload, null, 2))
+    }
+
+
+    table(data: unknown[]): void {
+        console.table(data)
+    }
 }
 
 type Handler = (c: Context) => void | Promise<void>;
@@ -126,7 +143,8 @@ export class Command {
             return
         }
 
-        const ctx = {} as Context
+        const ctx = new Context()
         await this.handler(ctx)
+        Deno.exit(ctx.exitCode)
     }
 }
