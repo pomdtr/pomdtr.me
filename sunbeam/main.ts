@@ -7,7 +7,7 @@ export default {
         })
 
         if (resp.status === 404) {
-            return serveFile(req, ".vitepress/dist/404.html")
+            return serveFile(req, "static/404.html")
         }
 
         return resp
