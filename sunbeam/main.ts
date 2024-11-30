@@ -3,7 +3,7 @@ import { serveDir, serveFile } from "jsr:@std/http@1.0.11"
 export default {
     fetch: async (req: Request) => {
         const resp = await serveDir(req, {
-            fsRoot: "repo/.vitepress/dist",
+            fsRoot: "static",
         })
 
         if (resp.status === 404) {

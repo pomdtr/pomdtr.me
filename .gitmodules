@@ -1,0 +1,3 @@
+[submodule "sunbeam/static"]
+	path = sunbeam/static
+	url = https://github.com/pomdtr/sunbeam
