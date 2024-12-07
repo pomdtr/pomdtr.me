@@ -1,3 +1,8 @@
 {
-    "domain": "pomdtr.me"
+    "addr": ":7778",
+    "domain": "pomdtr.me",
+    "customDomains": {
+        "localhost": "*",
+        "custom.pomdtr.me": "chess"
+    }
 }
