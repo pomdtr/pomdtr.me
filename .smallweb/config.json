@@ -2,9 +2,10 @@
     "addr": ":7778",
     "domain": "pomdtr.me",
     "customDomains": {
-        "localhost": "*"
+        "smallweb.localhost": "*"
     },
     "adminApps": [
-        "vscode"
+        "vscode",
+        "sun"
     ]
 }
